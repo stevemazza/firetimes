@@ -8,34 +8,53 @@ static TextLayer *tlStop;
 static TextLayer *tlReturning;
 static TextLayer *tlOnStation;
 static int Selected;
+static char *RespondText = "Respond: ";
+static char *OnSceneText = "On Scene: ";
+static char *StopText = "Stop: ";
+static char *ReturningText = "Returning: ";
+static char *OnStationText = "On Station: ";
 
 static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
 struct tm *t;
 time_t temp;
-char CurrentTime[6];
+char TempTime[6];
+const char *CurrentTime;
+char *TextBuffer;
   
+  TextBuffer = "";
   temp = time(NULL);
   t = localtime(&temp);
-  strftime(CurrentTime, 6, "%H:%M", t);
+  strftime(TempTime, 6, "%H:%M", t);
+  CurrentTime = TempTime;
   switch(Selected) {
     case 0: {
-      text_layer_set_text(tlRespond, strcat("Respond: ",CurrentTime));
+      strncpy(TextBuffer, RespondText, 20);
+      strcat(TextBuffer, CurrentTime);
+      text_layer_set_text(tlRespond, TextBuffer);
       break;
     }
     case 1: {
-      text_layer_set_text(tlOnScene, strcat("On Scene: ",CurrentTime));
+      strncpy(TextBuffer, OnSceneText, 20);
+      strcat(TextBuffer, CurrentTime);
+      text_layer_set_text(tlOnScene, TextBuffer);
       break;
     }
     case 2: {
-      text_layer_set_text(tlStop, strcat("Stop: ",CurrentTime));
+      strncpy(TextBuffer, StopText, 20);
+      strcat(TextBuffer, CurrentTime);
+      text_layer_set_text(tlStop, TextBuffer);
       break;
     }
     case 3: {
-      text_layer_set_text(tlReturning, strcat("Returning: ",CurrentTime));
+      strncpy(TextBuffer, ReturningText, 20);
+      strcat(TextBuffer, CurrentTime);
+      text_layer_set_text(tlReturning, TextBuffer);
       break;
     }
     case 4: {
-      text_layer_set_text(tlOnStation, strcat("On Station: ",CurrentTime));
+      strncpy(TextBuffer, OnStationText, 20);
+      strcat(TextBuffer, CurrentTime);
+      text_layer_set_text(tlOnStation, TextBuffer);
       break;
     }
   }
