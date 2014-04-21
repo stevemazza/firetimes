@@ -1,18 +1,18 @@
 {
-    "versionLabel": "1.0",
-    "uuid": "24b9200a-1a5a-42d5-be7c-a293134c63ab",
     "appKeys": {},
-    "longName": "FireTimes",
-    "versionCode": 1,
-    "shortName": "FireTimes",
-    "companyName": "steve.marriott@motorolasolutio",
     "capabilities": [
         ""
     ],
+    "uuid": "24b9200a-1a5a-42d5-be7c-a293134c63ab",
+    "versionLabel": "1.0",
+    "longName": "FireTimes",
+    "companyName": "steve.marriott@motorolasolutio",
+    "versionCode": 1,
+    "resources": {
+        "media": []
+    },
     "watchapp": {
         "watchface": false
     },
-    "resources": {
-        "media": []
-    }
+    "shortName": "FireTimes"
 }
